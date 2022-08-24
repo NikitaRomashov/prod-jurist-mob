@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220824042132">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220825052636">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -134,7 +134,7 @@
 					<div class="form__row">
 						<div class="form__line">
 							<label for="" class="form__label"><span>3</span> Выберите тип карты</label>
-							<select name="form[]" class="form">
+							<select onchange="change_tarif()" name="form[]" class="form">
 								<option value="1" selected>1 мес</option>
 								<option value="2">Пункт №2</option>
 								<option value="3">Пункт №3</option>
@@ -575,7 +575,13 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20220824042132"></script>
+	<script src="js/app.min.js?_v=20220825052636"></script>
+
+	<script>
+		function change_tarif() {
+			console.log('функция работает');
+		}
+	</script>
 </body>
 
 </html>

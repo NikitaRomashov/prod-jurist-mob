@@ -1688,6 +1688,7 @@
                 this.selectBuild(originalSelect);
                 originalSelect.dataset.speed = originalSelect.dataset.speed ? originalSelect.dataset.speed : "150";
                 originalSelect.addEventListener("change", (function(e) {
+                    console.log("Изменение");
                     _this.selectChange(e);
                 }));
             }
@@ -1717,6 +1718,11 @@
                         } else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTitle))) this.selectAction(selectItem); else if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption))) {
                             const optionItem = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption));
                             this.optionAction(selectItem, originalSelect, optionItem);
+                            if ("createEvent" in document) {
+                                var evt = document.createEvent("HTMLEvents");
+                                evt.initEvent("change", false, true);
+                                originalSelect.dispatchEvent(evt);
+                            } else originalSelect.fireEvent("onchange");
                         }
                     } else if ("focusin" === targetType || "focusout" === targetType) {
                         if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) "focusin" === targetType ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
