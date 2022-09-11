@@ -1688,7 +1688,7 @@
                 this.selectBuild(originalSelect);
                 originalSelect.dataset.speed = originalSelect.dataset.speed ? originalSelect.dataset.speed : "150";
                 originalSelect.addEventListener("change", (function(e) {
-                    console.log("Изменение");
+                    console.log("Изменениевцфвфвф");
                     _this.selectChange(e);
                 }));
             }
@@ -1872,9 +1872,12 @@
                 this.setSelectChange(originalSelect);
             }
             selectChange(e) {
-                const originalSelect = e.target;
-                this.selectBuild(originalSelect);
-                this.setSelectChange(originalSelect);
+                const selectItems = document.querySelectorAll("select");
+                for (let index = 0; index < selectItems.length; index++) {
+                    const element = selectItems[index];
+                    this.selectBuild(element);
+                    this.setSelectChange(element);
+                }
             }
             setSelectChange(originalSelect) {
                 if (originalSelect.hasAttribute("data-validate")) formValidate.validateInput(originalSelect);
